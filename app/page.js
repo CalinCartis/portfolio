@@ -35,7 +35,7 @@ export default function Home() {
         <p className="mb-8 opacity-0 animate-fadeIn delay-3 flex gap-2 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><path d="M22 6l-10 7L2 6"></path></svg>calin_cartis@yahoo.com</p>
 
         <p className="mb-8 opacity-0 animate-fadeIn delay-4">
-          I'm a 23 y/o programmer who loves building awesome things from scratch. Whether it's backend or frontend development, I enjoy creating awesome projects that push my skills. When I'm not coding, you'll probably find me outdoors, sweating somewhere in the woods.
+          I&apos;m a 23 y/o programmer who loves building awesome things from scratch. Whether it&apos;s backend or frontend development, I enjoy creating awesome projects that push my skills. When I&apos;m not coding, you&apos;ll probably find me outdoors, sweating somewhere in the woods.
         </p>
 
         <div className="opacity-0 animate-fadeIn delay-5">
