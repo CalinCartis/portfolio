@@ -14,7 +14,46 @@ const geistMono = localFont({
 
 export const metadata = {
   title: "Calin Cartis",
-  description: "Portfolio",
+  description: "Showcasing the work and projects of Calin Cartis, a creative web developer focused on building innovative and high-quality web solutions.",
+  keywords: [
+    "Fullstack Developer",
+    "Backend Developer",
+    "Web Developer",
+    "Software Developer",
+    "Backend APIs",
+    "API Development",
+    "WordPress Plugins",
+    "WordPress Themes",
+    "Frontend Development",
+    "Vue.js",
+    "Javascript",
+    "TypeScript",
+    "MySQL",
+    "PHP",
+    "Laravel",
+    "Docker",
+    "CI/CD",
+    "Node.js",
+    "MongoDB",
+    "Balena",
+    "RabbitMQ",
+    "Filament",
+    "Firebase",
+    "Minio",
+    "Traefik",
+    "MQTT",
+    "IoT",
+    "Christian Developer",
+    "Problem-Solving",
+    "Innovative Solutions",
+    "Scalable Systems",
+    "Client Collaboration",
+    "High-Performance Web Apps",
+    "Agile Development",
+    "Cross-Functional Collaboration",
+    "Software Engineering",
+    "DevOps Practices"
+  ]
 };
 
 export default function RootLayout({ children }) {
