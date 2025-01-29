@@ -1,7 +1,12 @@
 {
     "career": [
         {
-            "title": "Fullstack developer - TechStackApps",
+            "title": "Software Engineer - Brinos",
+            "date": "(Jan 2025 - present)",
+            "description": "Developed a platform that provides accessible and accurate monitoring of behavioral changes in children with autism."
+        },
+        {
+            "title": "Software Engineer - TechStackApps",
             "date": "(Jun 2022 - present)",
             "description": "Gained valuable experience working on diverse projects, where I was responsible for implementing solutions based on client needs. I frequently interacted with clients to gather requirements, clarify project goals, and provide updates."
         },
@@ -13,27 +18,31 @@
     ],
     "projects": [
         {
-            "title": "1. Financial Services Web Project",
+            "title": "1. Therapy App",
+            "description": "Developed an accessible and accurate monitoring system of behavioral changes in children with autism, saving time for parents and therapists."
+        },
+        {
+            "title": "2. Financial Services Web Project",
             "description": "Developed a web platform where consultants could manage clients and generate insurance, investment, and other financial products. Primarily focused on front-end development, but also contributed to back-end.",
             "technologies": "Vue.js, TypeScript, Java, Spring Boot, MySQL"
         },
         {
-            "title": "2. Energy Management Web App",
+            "title": "3. Energy Management Web App",
             "description": "Developed a web app for energy consumption monitoring and billing. Processed meter data, allowing our client to generate invoices and reports for their customers to view and download.",
             "technologies": "PHP, Laravel, MySQL, InfluxDB, Grafana, Docker, CI/CD"
         },
         {
-            "title": "3. IoT Temperature Control System",
+            "title": "4. IoT Temperature Control System",
             "description": "Contributed to an IoT-based home temperature control system, focusing on MQTT device management. Handled device registration and communication between the mobile app and MQTT devices via RabbitMQ.",
             "technologies": "Node.js, MongoDB, Balena, RabbitMQ, Docker"
         },
         {
-            "title": "4. Item Lending Platform",
+            "title": "5. Item Lending Platform",
             "description": "Developed the backend for a peer-to-peer lending app, including APIs for the mobile app and an admin dashboard to manage users, products, orders, customer issues, and more.",
             "technologies": "PHP, Laravel, Filament, MySQL, Docker, Minio, Pusher, Firebase, Traefik, Node.js, CI/CD"
         },
         {
-            "title": "5. Health & Fitness App",
+            "title": "6. Health & Fitness App",
             "description": "Developed the backend of a health and fitness mobile application for companies. Supported core API functionalities, data management, and team-based features, allowing managers to oversee activities and manage teams.",
             "technologies": "PHP, Laravel, MySQL, Docker"
         }
