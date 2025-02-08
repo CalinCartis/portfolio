@@ -135,7 +135,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="text-[#e5e5e5] font-medium mb-2">Languages & Frameworks</h3>
-                    <ul className="list-disc list-inside space-y-1">
+                    <ul className="list-disc list-outside ml-4 space-y-1">
                       {data.technologies.languages.map((tech, index) => (
                         <li key={index}>{tech}</li>
                       ))}
@@ -143,7 +143,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-[#e5e5e5] font-medium mb-2">Databases & Storage</h3>
-                    <ul className="list-disc list-inside space-y-1">
+                    <ul className="list-disc list-outside ml-4 space-y-1">
                       {data.technologies.databases_storage.map((tech, index) => (
                         <li key={index}>{tech}</li>
                       ))}
@@ -151,7 +151,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-[#e5e5e5] font-medium mb-2">Cloud & DevOps</h3>
-                    <ul className="list-disc list-inside space-y-1">
+                    <ul className="list-disc list-outside ml-4 space-y-1">
                       {data.technologies.cloud_devops.map((tech, index) => (
                         <li key={index}>{tech}</li>
                       ))}
@@ -159,7 +159,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-[#e5e5e5] font-medium mb-2">Integrations & Monitoring</h3>
-                    <ul className="list-disc list-inside space-y-1">
+                    <ul className="list-disc list-outside ml-4 space-y-1">
                       {data.technologies.integrations_monitoring.map((tech, index) => (
                         <li key={index}>{tech}</li>
                       ))}
