@@ -125,7 +125,7 @@ export default function Home() {
           </div>
 
           <div
-            className="transition-all duration-300 ease-in-out overflow-hidden mb-16"
+            className="transition-all duration-300 ease-in-out overflow-hidden mb-12 md:mb-16"
             style={{ height: `${contentHeight}px` }}
           >
             <div ref={contentRef}>
