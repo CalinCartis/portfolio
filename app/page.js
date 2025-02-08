@@ -8,6 +8,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState('career');
   const contentRef = useRef(null);
   const [contentHeight, setContentHeight] = useState(0);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   const getRandomQuote = () => {
     const randomIndex = Math.floor(Math.random() * data.quotes.length);
@@ -25,9 +26,25 @@ export default function Home() {
     }
   }, [activeTab]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div className="min-h-screen text-[#a0a0a0] font-sans flex flex-col">
-      <header className="max-w-5xl mx-auto flex-grow p-6 md:p-8" >
+      <header className="w-full lg:max-w-5xl mx-auto flex-grow p-6 md:p-8" >
         <h1 className="text-2xl md:text-5xl font-bold mt-8 md:mt-80 mb-8 md:mb-20 opacity-0 text-[#e5e5e5] animate-fadeIn" role="heading" aria-level="1">Calin Cartis</h1>
 
         <p className="mb-2 opacity-0 animate-fadeIn delay-1 flex gap-2 items-center" aria-label="Location"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>Oradea, Romania</p>
@@ -39,7 +56,7 @@ export default function Home() {
         </p>
       </header>
 
-      <main className="max-w-5xl mx-auto flex-grow p-6 md:p-8 pt-0">
+      <main className="w-full lg:max-w-5xl mx-auto flex-grow p-6 md:p-8">
         <div className="opacity-0 animate-fadeIn delay-5">
           <div className="flex justify-center space-x-8 mb-8 text-lg" role="tablist" aria-label="Profile sections">
             <button
@@ -54,6 +71,16 @@ export default function Home() {
             </button>
             <button
               role="tab"
+              aria-selected={activeTab === 'technologies'}
+              aria-controls="technologies-tab"
+              id="technologies-tab-button"
+              className={`cursor-pointer underline-offset-8 hover:text-[#e5e5e5] transition duration-300 ${activeTab === 'technologies' ? 'text-[#e5e5e5] underline' : ''}`}
+              onClick={() => setActiveTab('technologies')}
+            >
+              Technologies
+            </button>
+            <button
+              role="tab"
               aria-selected={activeTab === 'projects'}
               aria-controls="projects-tab"
               id="projects-tab-button"
@@ -65,7 +92,7 @@ export default function Home() {
           </div>
 
           <div
-            className="transition-all duration-300 ease-in-out overflow-hidden mb-8"
+            className="transition-all duration-300 ease-in-out overflow-hidden mb-16"
             style={{ height: `${contentHeight}px` }}
           >
             <div ref={contentRef}>
@@ -95,9 +122,50 @@ export default function Home() {
                   <div className="mb-8" key={index}>
                     <h3 className="font-medium text-[#e5e5e5] mb-2">{proj.title}</h3>
                     <p className="mb-2 px-5">{proj.description}</p>
-                    {proj.technologies && <p className="text-sm px-5 text-[#e5e5e5]">Technologies: {proj.technologies}</p>}
                   </div>
                 ))}
+              </div>
+              <div
+                id="technologies-tab"
+                role="tabpanel"
+                aria-labelledby="technologies-tab-button"
+                hidden={activeTab !== 'technologies'}
+                className="opacity-0 animate-fadeIn"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="text-[#e5e5e5] font-medium mb-2">Languages & Frameworks</h3>
+                    <ul className="list-disc list-inside space-y-1">
+                      {data.technologies.languages.map((tech, index) => (
+                        <li key={index}>{tech}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-[#e5e5e5] font-medium mb-2">Databases & Storage</h3>
+                    <ul className="list-disc list-inside space-y-1">
+                      {data.technologies.databases_storage.map((tech, index) => (
+                        <li key={index}>{tech}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-[#e5e5e5] font-medium mb-2">Cloud & DevOps</h3>
+                    <ul className="list-disc list-inside space-y-1">
+                      {data.technologies.cloud_devops.map((tech, index) => (
+                        <li key={index}>{tech}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-[#e5e5e5] font-medium mb-2">Integrations & Monitoring</h3>
+                    <ul className="list-disc list-inside space-y-1">
+                      {data.technologies.integrations_monitoring.map((tech, index) => (
+                        <li key={index}>{tech}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -113,11 +181,34 @@ export default function Home() {
       </main>
 
       <footer className="w-full text-[#707070] text-sm border-t border-[#2e2e2e] min-h-[53px] opacity-0 animate-fadeIn delay-9">
-        <div className="max-w-5xl px-4 md:px-6 mx-auto flex flex-col md:flex-row justify-between md:items-center my-4 space-y-2 md:space-y-0">
+        <div className="w-full lg:max-w-5xl px-4 md:px-6 mx-auto flex flex-col md:flex-row justify-between md:items-center my-4 space-y-2 md:space-y-0">
           <p>{randomQuote.quote}</p>
           <p>{randomQuote.reference}</p>
         </div>
       </footer>
+
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-8 right-8 bg-[#2e2e2e] text-[#e5e5e5] p-3 rounded-full shadow-lg transition-all duration-300 hover:bg-[#3e3e3e] focus:outline-none focus:ring-2 focus:ring-[#4e4e4e] ${
+          showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+        }`}
+        aria-label="Back to top"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M5 10l7-7m0 0l7 7m-7-7v18"
+          />
+        </svg>
+      </button>
     </div>
   );
 }
