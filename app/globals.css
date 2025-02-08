@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply transition-colors duration-300;
+  }
+}
+
+.theme-transition {
+  @apply transition-colors duration-300;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
